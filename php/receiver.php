@@ -3,6 +3,7 @@ session_start();
 include("game.php");
 //unset($_SESSION["obj"]);
 
+try {
 
 if (!isset($_SESSION["obj"])) {
     $bj = new Game(2);
@@ -47,4 +48,10 @@ if (isset($_POST["moreCard"])) {
 
 
     $_SESSION["obj"] = serialize($obj);
+}
+
+}
+catch (Exception $e) {
+    $message = "Error! " . $e->getMessage() . "\n";
+    echo "<script> alert('$message')</script>";
 }

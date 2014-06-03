@@ -45,7 +45,6 @@ function first(){
     },
 
     error:function(xhr, ajaxOptions, thrownError){ 
-        alert("error-first()");
         alert(xhr.status); 
         alert(thrownError); 
     }
