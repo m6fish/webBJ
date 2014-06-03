@@ -30,7 +30,7 @@ class Card
 
     public function getCardIndex()
     {
-        return $this->cardIndex;    
+        return $this->cardIndex;
     }
 
     public function checkCard($suitIndex, $numIndex)
