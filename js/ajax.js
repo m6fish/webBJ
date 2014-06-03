@@ -5,6 +5,7 @@ $(document).ready(function(){
         send($(this).val());
         if($(this).val() == '1'){
             $("button[name='HIT']").hide();
+            $("button[name='STAND']").hide();
         }
     });
 
@@ -29,13 +30,17 @@ function first(){
 
     success: function(jData){
         //alert(msg);
-        pic = jData["p1"];
+
         //$('#cards_p1').append(jData["p1"]);
-        $('#cards_b').append(jData["b"]);
+        //$('#cards_b').append(jData["b"]);
         
-        $('div.pics').html("<img src = '../asset/pic/" 
+        pic = jData["p1"];
+        $('div.player_pics').html("<img src = '../asset/pic/" 
             + pic + ".gif' alt = 'Poker' width = '62px'/>");
 
+        pic = jData["b"];
+        $('div.banker_pics').html("<img src = '../asset/pic/" 
+            + pic + ".gif' alt = 'Poker' width = '62px'/>");
 
     },
 
@@ -69,12 +74,19 @@ function send(mode){
             $('#score_p1').text(jData['score_p1']);
 
             pic = jData['p1'];
-            $('div.pics').append("<img src = '../asset/pic/" 
+            $('div.player_pics').append("<img src = '../asset/pic/" 
                 + pic + ".gif' alt = 'Poker' width = '62px'/>");
 
         } else if (1 == mode){
-            $('#cards_b').append(" " + jData['b']);
+            //$('#cards_b').append(" " + jData['b']);
 
+
+            pic = jData['b_rest'];
+
+            for ( var restNo in pic) {
+                $('div.banker_pics').append("<img src = '../asset/pic/" 
+                    + pic[restNo] + ".gif' alt = 'Poker' width = '62px'/>");
+            }
             $('#score_p1').text(jData['score_p1']);
             $('#score_b').text(jData['score_b']);
 

@@ -27,9 +27,9 @@ if (isset($_POST["moreCard"])) {
     } elseif (1 == $mode) {
         $sum_p1 = $obj->check("p1");
         $sum_b = $obj->check("b");
-        $newCard_b = " ";
         while ($sum_b < 17) {
-            $newCard_b .= " ". $obj->addPlayerCard("b");
+            $newCard_b[] = $obj->addPlayerCard("b");
+
             $sum_b = $obj->check("b");
         }
 
@@ -37,7 +37,7 @@ if (isset($_POST["moreCard"])) {
         echo json_encode(
             array('score_p1'=>$sum_p1,
                 'score_b'=>$sum_b,
-                'b'=>$newCard_b,
+                'b_rest'=>$newCard_b,
                 'result'=> $win
             )
         );

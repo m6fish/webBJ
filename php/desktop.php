@@ -42,7 +42,7 @@ unset($_SESSION['obj']);
 
             <div id = "player">
                 <label>PlayerCard:</label>
-                <div class = "pics">
+                <div class = "player_pics">
                     <div class = "poker_box">
                         <img src = "../asset/pic/poker.jpg" alt = "Poker" 
                         width = "806px"/>
@@ -58,6 +58,8 @@ unset($_SESSION['obj']);
 
             <div id = "banker">
                 <label>BankerCard:</label>
+                <div class = "banker_pics">
+                </div>
                 <span>
                     <p id = cards_b><p/>
                     <label>Score:</label>
