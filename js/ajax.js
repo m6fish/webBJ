@@ -29,7 +29,8 @@ function first(){
         //alert(msg);
         $('#cards_p1').append(jData["p1"]);
         $('#cards_b').append(jData["b"]);
-
+        
+        $('div.pics').html("<img src = '../asset/pic/poker3.gif' alt = 'Poker' width = '806px'/>");
     },
 
     error:function(xhr, ajaxOptions, thrownError){ 

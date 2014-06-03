@@ -1,0 +1,15 @@
+.poker_box {
+ position: relative;
+ //top: 0; 
+ //left: -293px;
+}
+
+.poker_box img {
+ position: absolute; 
+ // rect(up,right,down,left)
+ // -> right,left + 62px
+ // | up,down + 83px
+
+ //SpadeA : rect(0 63px 84px 0px);
+ clip: rect(83px 125px 167px 63px);
+}

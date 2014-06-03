@@ -16,6 +16,7 @@ unset($_SESSION['obj']);
 
     <title>BlackJack 21</title>
     <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.css" />
+    <link rel= "stylesheet" href="../asset/css/poker.css" />
     <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
     <script src="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.js"></script>
 
@@ -41,6 +42,13 @@ unset($_SESSION['obj']);
 
             <div id = "player">
                 <label>PlayerCard:</label>
+                <div class = "pics">
+                    <div class = "poker_box">
+                        <img src = "../asset/pic/poker.jpg" alt = "Poker" 
+                        width = "806px"/>
+                    </div>
+                </div>
+
                 <span>
                     <p id = cards_p1></p>
                     <label>Score:</label>
