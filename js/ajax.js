@@ -18,6 +18,8 @@ $(document).ready(function(){
 function first(){
     var targetURL="receiver.php";
     var sendData = "moreCard=2";
+    
+    var pic = "";
 
     $.ajax({
     url: targetURL,
@@ -27,10 +29,14 @@ function first(){
 
     success: function(jData){
         //alert(msg);
-        $('#cards_p1').append(jData["p1"]);
+        pic = jData["p1"];
+        //$('#cards_p1').append(jData["p1"]);
         $('#cards_b').append(jData["b"]);
         
-        $('div.pics').html("<img src = '../asset/pic/poker3.gif' alt = 'Poker' width = '806px'/>");
+        $('div.pics').html("<img src = '../asset/pic/" 
+            + pic + ".gif' alt = 'Poker' width = '62px'/>");
+
+
     },
 
     error:function(xhr, ajaxOptions, thrownError){ 
@@ -48,6 +54,8 @@ function send(mode){
     var targetURL="receiver.php";
     var sendData = "moreCard=" + mode;
 
+    var pic = "";
+
     $.ajax({
     url: targetURL,
     data: sendData,
@@ -57,8 +65,13 @@ function send(mode){
     success: function(jData){
 //       alert(jData);
         if (0 == mode) {
-            $('#cards_p1').append(" " + jData['p1']);
+            //$('#cards_p1').append(" " + jData['p1']);
             $('#score_p1').text(jData['score_p1']);
+
+            pic = jData['p1'];
+            $('div.pics').append("<img src = '../asset/pic/" 
+                + pic + ".gif' alt = 'Poker' width = '62px'/>");
+
         } else if (1 == mode){
             $('#cards_b').append(" " + jData['b']);
 
