@@ -3,7 +3,7 @@ $(document).ready(function(){
     first();
     $(".choice").click(function(){
         send($(this).val());
-        if($(this).val() == '1'){
+        if($(this).val() == '-1'){
             $("button[name='HIT']").hide();
             $("button[name='STAND']").hide();
         }
@@ -18,7 +18,7 @@ $(document).ready(function(){
 
 function first(){
     var targetURL="receiver.php";
-    var sendData = "moreCard=2";
+    var sendData = "moreCard=0";
     
     var pic = "";
 
@@ -31,14 +31,11 @@ function first(){
     success: function(jData){
         //alert(msg);
 
-        //$('#cards_p1').append(jData["p1"]);
-        //$('#cards_b').append(jData["b"]);
-        
-        pic = jData["p1"];
+        pic = jData["player1"];
         $('div.player_pics').html("<img src = '../asset/pic/" 
             + pic + ".gif' alt = 'Poker' width = '62px'/>");
 
-        pic = jData["b"];
+        pic = jData["banker"];
         $('div.banker_pics').html("<img src = '../asset/pic/" 
             + pic + ".gif' alt = 'Poker' width = '62px'/>");
 
@@ -67,19 +64,14 @@ function send(mode){
     dataType:'json',
 
     success: function(jData){
-//       alert(jData);
-        if (0 == mode) {
-            //$('#cards_p1').append(" " + jData['p1']);
+        if (1 == mode) {
             $('#score_p1').text(jData['score_p1']);
 
-            pic = jData['p1'];
+            pic = jData['player1'];
             $('div.player_pics').append("<img src = '../asset/pic/" 
                 + pic + ".gif' alt = 'Poker' width = '62px'/>");
 
-        } else if (1 == mode){
-            //$('#cards_b').append(" " + jData['b']);
-
-
+        } else if ("-1" == mode){
             pic = jData['b_rest'];
 
             for ( var restNo in pic) {

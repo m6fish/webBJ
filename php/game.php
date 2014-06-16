@@ -29,11 +29,11 @@ class Game extends Deck
         $this->shuffle();
 
         $cards_b[] = $this->deal();
-        $this->playerCards["b"] = $cards_b;
+        $this->playerCards["banker"] = $cards_b;
 
         //for() players
         $cards_p1[] = $this->deal();
-        $this->playerCards["p1"] = $cards_p1;
+        $this->playerCards["player1"] = $cards_p1;
     }
 
 
@@ -70,9 +70,6 @@ class Game extends Deck
         $cardArr[] = $newCard;
         $this->playerCards[$who] = $cardArr;
 
-        //$scoreSum = $this->calculate($cardArr);
-
-//        $ans = $newCard->getColor() . $newCard->getNum();
         $ans = $newCard->getCardIndex();
         return $ans;
     }
@@ -81,7 +78,6 @@ class Game extends Deck
     {
         $cardArr = $this->playerCards[$who];
 
-//       $ans =  $cardArr[0]->getColor() . $cardArr[0]->getNum();
         $ans = $cardArr[0]->getCardIndex();
         return $ans;
     }
@@ -207,7 +203,7 @@ class Game extends Deck
         foreach ($this->playerCards as $person => $personCards) {
             $personScore = $this->check($person);
             if ($personScore > 21) {
-                if ("b" == $person) {
+                if ("banker" == $person) {
                     $personScore = 1;
                 } else {
                     $personScore = 0;
@@ -218,7 +214,7 @@ class Game extends Deck
         arsort($this->playerScore);
         $winner = key($this->playerScore);
         
-        $formate = array("b"=>"banker", "p1" => "player");
+        $formate = array("banker"=>"banker", "player1" => "player");
         
 
 

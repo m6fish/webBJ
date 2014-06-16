@@ -36,8 +36,8 @@ unset($_SESSION['obj']);
         <div role="main" class="ui-content">
 
             <div>
-                <button class="choice" name = "HIT" value = '0'/>HIT
-                <button class="choice" name = "STAND" value = '1'/>STAND
+                <button class="choice" name = "HIT" value = '1'/>HIT
+                <button class="choice" name = "STAND" value = '-1'/>STAND
             </div><br/>
 
             <div id = "player">
