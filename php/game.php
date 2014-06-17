@@ -74,11 +74,17 @@ class Game extends Deck
         return $ans;
     }
 
-    public function getFirstCard($who)
+    public function getTheCard($who, $cardNo)
     {
         $cardArr = $this->playerCards[$who];
 
-        $ans = $cardArr[0]->getCardIndex();
+        if ('-1' == $cardNo) {
+            foreach ($cardArr as $no => $oneCard) {
+                $ans[$no] = $oneCard->getCardIndex();
+            }
+        } elseif ($cardNo >= 0) {
+            $ans = $cardArr[$cardNo]->getCardIndex();
+        }
         return $ans;
     }
 
