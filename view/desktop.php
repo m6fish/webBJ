@@ -34,10 +34,6 @@
             <div id = "player">
                 <label>PlayerCard:</label>
                 <div class = "player_pics">
-                    <div class = "poker_box">
-                        <img src = "../asset/pic/poker.jpg" alt = "Poker" 
-                        width = "806px"/>
-                    </div>
                 </div>
 
                 <span>
