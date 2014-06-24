@@ -56,6 +56,10 @@ try {
         echo json_encode($resultArr);
 
         $_SESSION["obj"] = serialize($obj);
+
+        if('-1' == $mode){
+            unset($_SESSION['obj']);
+        }
     }
 
 } catch (Exception $e) {
