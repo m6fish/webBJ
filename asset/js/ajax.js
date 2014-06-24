@@ -10,7 +10,7 @@ $(document).ready(function(){
     });
 
     $(".restart").click(function(){
-        location.reload();
+        window.location.replace(location.href);
     });
 });
 
