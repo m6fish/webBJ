@@ -20,7 +20,8 @@ function first(){
     var targetURL="receiver.php";
     var sendData = "moreCard=0";
     
-    var pic = "";
+    var pic_p1 = "";
+    var pic_b = "";
 
     $.ajax({
     url: targetURL,
@@ -30,14 +31,16 @@ function first(){
 
     success: function(jData){
         //alert(msg);
-
-        pic = jData["player1"];
+        pic_p1 = jData["player1"];
         $('div.player_pics').html("<img src = '../asset/pic/" 
-            + pic + ".gif' alt = 'Poker' width = '62px'/>");
+            + pic_p1 + ".gif' alt = 'Poker' width = '62px'/>");
 
-        pic = jData["banker"];
+        pic_b = jData["banker"];
         $('div.banker_pics').html("<img src = '../asset/pic/" 
-            + pic + ".gif' alt = 'Poker' width = '62px'/>");
+            + pic_b + ".gif' alt = 'Poker' width = '62px'/>");
+
+        console.log(pic_p1);
+        console.log(pic_b);
 
     },
 

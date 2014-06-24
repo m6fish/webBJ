@@ -7,8 +7,6 @@ try {
     if (!isset( $_SESSION["obj"])) {
         $bj = new Game(2);
         $bj->prepare();
-        $first_p1 = $bj->getTheCard("player1", 0);
-        $first_b = $bj->getTheCard("banker", 0);
         $_SESSION["obj"] = serialize($bj);
     }
 
@@ -35,6 +33,8 @@ try {
                         );
 
         } elseif (0 == $mode) {
+            $first_p1 = $obj->getTheCard("player1", 0);
+            $first_b = $obj->getTheCard("banker", 0);
             $resultArr = array("banker" => $first_b,
                             "player1" => $first_p1,
                             'error_code' => '1'
