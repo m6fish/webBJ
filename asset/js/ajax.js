@@ -10,7 +10,9 @@ $(document).ready(function(){
     });
 
     $(".restart").click(function(){
-        window.location.replace(location.href);
+        //window.location.replace(location.href);
+        //Reload page without cache
+        location.reload(true);
     });
 });
 

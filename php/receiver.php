@@ -1,6 +1,6 @@
 <?php
 session_start();
-include("game.php");
+include_once("game.php");
 
 try {
 
